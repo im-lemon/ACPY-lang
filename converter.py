@@ -7,7 +7,8 @@ class UndefinedModeError(Exception):
 parser = argparse.ArgumentParser()
 
 parser.add_argument("--mode", "-m", help="The mode for the converter.", required=True)
-parser.add_argument("--input", "-i", help="The input for the converter, either from a file or a string.")
+parser.add_argument("--input", "-i", help="The input for the converter, either from a file or a string.", required=True)
+parser.add_argument("--path", "-p", help="The path to write the file to.", required=True)
 modes = ["string", "file"]
 args = parser.parse_args()
 
@@ -20,10 +21,10 @@ elif args.mode == "file":
     with open(args.input, 'r') as f:
         content = f.read()
 
-    text = content.strip()
+    text = content
 
-if args.mode == "text":
-    text = args.input.strip()
+if args.mode == "string":
+    text = args.input
 
 
 
@@ -44,4 +45,7 @@ c = convert(
     text
 )
 
-print(c)
+with open(args.path, 'w') as f:
+    f.write(
+        c.strip()
+    )
