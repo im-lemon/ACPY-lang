@@ -8,8 +8,6 @@ def interpret(file: str):
             f'File: {file} is not an acpy file. (Expects ".acpy" file-extension.)'
         )
 
-    unallowed = string.ascii_letters
-
     with open(file, 'r') as f:
         lines = f.read().split("\n")
 
