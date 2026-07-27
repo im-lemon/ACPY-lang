@@ -27,5 +27,6 @@ def interpret(file: str):
                 char = int(char)
                 c=chr(char)
                 cmd += c
-            exec(cmd)
+            namespace = {}
+            exec(cmd, namespace)
             cmd = ""
