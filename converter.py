@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--mode", "-m", help="The mode for the converter.", required=True)
 parser.add_argument("--input", "-i", help="The input for the converter, either from a file or a string.", required=True)
 parser.add_argument("--path", "-p", help="The path to write the file to.", required=True)
-modes = ["string", "file"]
+modes = ["text", "file"]
 args = parser.parse_args()
 
 if not args.mode in modes:
@@ -23,7 +23,7 @@ elif args.mode == "file":
 
     text = content
 
-if args.mode == "string":
+if args.mode == "text":
     text = args.input
 
 

@@ -1,7 +1,5 @@
 from errors import FileNotValidError, ACPYSyntaxError
 
-import string
-
 def interpret(file: str):
     if not file.endswith(".acpy"):
         raise FileNotValidError(
